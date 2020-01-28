@@ -13,12 +13,15 @@
     <title>Тестовый сайт</title>
     
 <!-- CSS STYLE ======================================================================== -->
-   
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="css/reset.min.css">
-    <link rel="stylesheet" media="all and (min-width: 1201px)" href="">
+    <link rel="stylesheet"  href="css/main.css">
+    
+<!--
     <link rel="stylesheet" media="all and (min-width: 901px) and (max-width: 1200px)" href="">
     <link rel="stylesheet" media="all and (min-width: 601px) and (max-width: 900px)" href=""> 
     <link rel="stylesheet" media="all and (max-width: 600px)" href="">
+-->
     
 <!-- CSS STYLE ======================================================= -->
     
@@ -32,15 +35,32 @@
    
 <!-- MAIN START ======================================================================= -->
    
-    <main id="app">
-        <h1>Hello World!</h1>
+    <main class="app" id="app">
+        <h1 class="app__title">{{title}}</h1>
+        <section class="calendar">
+            <div class="calendar__months">
+                <div class="month" v-for="month in months">
+                    <h2 class="month__name">{{month.name}}</h2>
+                    <div class="month__days">
+                        <div class="month__day" v-for="day in days">{{day.name}}</div>
+                    </div>
+                    <div class="month__dates">
+                        <div class="month__date" v-for="date in month.dates">{{date.day}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reservation">
+            
+        </section>
     </main>
     
 <!-- MAIN END ========================================================================= -->
     
 <!-- SCRIPTS START ==================================================================== --> 
   
-<script src="js/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" defer></script>
+<script src="/js/main-app.js" defer></script>
 
 <!-- SCRIPTS END ====================================================================== -->   
 
