@@ -38,17 +38,46 @@
     <main class="app" id="app">
         <h1 class="app__title">{{title}}</h1>
         <section class="calendar">
-            <div class="calendar__months">
+            <div class="calendar__months" id="months">
                 <div class="month" v-for="month in months">
                     <h2 class="month__name">{{month.name}}</h2>
                     <div class="month__days">
                         <div class="month__day" v-for="day in days">{{day.name}}</div>
                     </div>
                     <div class="month__dates">
-                        <div class="month__date" v-for="date in month.dates">{{date.day}}</div>
+                        <div  
+                        v-for="date in month.dates" 
+                        v-bind:class="date.class" 
+                        v-bind:data-month="month.name" 
+                        v-bind:data-day="date.day">{{date.day}}</div>
                     </div>
                 </div>
             </div>
+            <a class="button" id="next-button1">{{buttonName}}</a>
+        </section>
+        
+        <section class="reserv " id="reserv-part1">
+            <h2 class="reserv__title">{{reservTitle}}</h2>
+            <form class="reserv__form">
+                <div class="reserv__dates" id="time-part">
+
+
+
+                </div>
+                <a class="button" id="next-button2" >{{buttonName}}</a>
+            </form>
+        </section>
+        
+        <section class="reserv" id="reserv-part2">
+            <div class="reserv__blocks" id="time-part2">
+                
+                   
+                
+            </div>   
+            
+
+            <a class="button" id="next-button3" > {{buttonNameDone}}</a>
+
         </section>
         <section class="reservation">
             
@@ -60,7 +89,8 @@
 <!-- SCRIPTS START ==================================================================== --> 
   
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" defer></script>
-<script src="/js/main-app.js" defer></script>
+<script src="/js/data-app.js" defer></script>
+<script src="/js/main.js" defer></script>
 
 <!-- SCRIPTS END ====================================================================== -->   
 
