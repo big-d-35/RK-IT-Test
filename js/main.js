@@ -40,7 +40,7 @@ nextButton1.addEventListener('click', function(event){
     
 });
 
-
+//next step 2
 let allDates = [];
 nextButton2.addEventListener('click', function(event){
     let selectedDates = document.getElementsByClassName('reserv__text');

@@ -5,26 +5,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="" >
+    <meta name="keywords" content="">
     <meta name="description" content="">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <title>Тестовый сайт</title>
-    
-<!-- CSS STYLE ======================================================================== -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">   
+
+    <!-- CSS STYLE ======================================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.min.css">
-    <link rel="stylesheet"  href="css/main.css">
-    
-<!--
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--
     <link rel="stylesheet" media="all and (min-width: 901px) and (max-width: 1200px)" href="">
     <link rel="stylesheet" media="all and (min-width: 601px) and (max-width: 900px)" href=""> 
     <link rel="stylesheet" media="all and (max-width: 600px)" href="">
 -->
-    
-<!-- CSS STYLE ======================================================= -->
-    
+
+    <!-- CSS STYLE ======================================================= -->
+
 </head>
 
 <!-- HEAD END ========================================================================= -->
@@ -32,11 +32,12 @@
 
 
 <body>
-   
-<!-- MAIN START ======================================================================= -->
-   
+
+    <!-- MAIN START ======================================================================= -->
+
     <main class="app" id="app">
         <h1 class="app__title">{{title}}</h1>
+        <!-- CALENDAR START ================ -->
         <section class="calendar">
             <div class="calendar__months" id="months">
                 <div class="month" v-for="month in months">
@@ -45,59 +46,52 @@
                         <div class="month__day" v-for="day in days">{{day.name}}</div>
                     </div>
                     <div class="month__dates">
-                        <div  
-                        v-for="date in month.dates" 
-                        v-bind:class="date.class" 
-                        v-bind:data-month="month.name" 
-                        v-bind:data-day="date.day">{{date.day}}</div>
+                        <div v-for="date in month.dates" v-bind:class="date.class" v-bind:data-month="month.name" v-bind:data-day="date.day">{{date.day}}</div>
                     </div>
                 </div>
             </div>
             <a class="button" id="next-button1">{{buttonName}}</a>
         </section>
-        
+        <!-- CALENDAR END ================ -->
+        <!-- RESERV 1 START ================ -->
         <section class="reserv " id="reserv-part1">
             <h2 class="reserv__title">{{reservTitle}}</h2>
             <form class="reserv__form">
                 <div class="reserv__dates" id="time-part">
-
-
-
                 </div>
-                <a class="button" id="next-button2" >{{buttonName}}</a>
+                <a class="button" id="next-button2">{{buttonName}}</a>
             </form>
         </section>
-        
+        <!-- RESERV 1 END ================ -->
+        <!-- RESERV 2 START ================ -->
         <section class="reserv" id="reserv-part2">
             <div class="reserv__blocks" id="time-part2">
-                
-                   
-                
-            </div>   
-            
-
-            <a class="button" id="next-button3" > {{buttonNameDone}}</a>
+            </div>
+            <a class="button" id="next-button3"> {{buttonNameDone}}</a>
+        </section>
+        <!-- RESERV 2 END ================ -->
+        <!-- ROOM START ================ -->
+        <section class="room">
 
         </section>
-        <section class="reservation">
-            
-        </section>
+        <!-- ROOM END ================ -->
     </main>
-    
-<!-- MAIN END ========================================================================= -->
-    
-<!-- SCRIPTS START ==================================================================== --> 
-  
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" defer></script>
-<script src="/js/data-app.js" defer></script>
-<script src="/js/main.js" defer></script>
 
-<!-- SCRIPTS END ====================================================================== -->   
+    <!-- MAIN END ========================================================================= -->
 
-<!-- METRIKA START ====================================================================== -->   
+    <!-- SCRIPTS START ==================================================================== -->
 
-<!-- METRIKA END ====================================================================== --> 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" defer></script>
+    <script src="/js/data-app.js" defer></script>
+    <script src="/js/main.js" defer></script>
+
+    <!-- SCRIPTS END ====================================================================== -->
+
+    <!-- METRIKA START ====================================================================== -->
+
+    <!-- METRIKA END ====================================================================== -->
 
 
 </body>
+
 </html>
