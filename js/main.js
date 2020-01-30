@@ -11,11 +11,13 @@ months.addEventListener('click', function (event){
 //next step 1
 const nextButton1 = document.getElementById('next-button1');
 const nextButton2 = document.getElementById('next-button2');
+const nextButton3 = document.getElementById('next-button3');
 const timePartBlock = document.getElementById('time-part');
 const timePartBlock2 = document.getElementById('time-part2');
 const reservPart1 = document.getElementById('reserv-part1');
 const reservPart2 = document.getElementById('reserv-part2');
-
+let allDates = [];
+let allDayMonths = {};
 nextButton1.addEventListener('click', function(event){
     
     let allActiveDays = document.getElementsByClassName('month__date-active');
@@ -41,8 +43,9 @@ nextButton1.addEventListener('click', function(event){
 });
 
 //next step 2
-let allDates = [];
-nextButton2.addEventListener('click', function(event){
+
+
+nextButton2.addEventListener('click', function (event){
     let selectedDates = document.getElementsByClassName('reserv__text');
     let selectedOptions =  document.getElementsByClassName('reserv__select');
     let allOptions = [];
@@ -53,29 +56,47 @@ nextButton2.addEventListener('click', function(event){
     };
     for (i=0; i < selectedOptions.length; i++) {
 
-        let option = selectedOptions[i].value;
-        
-        
-        
-       if (option == '') {
-            alert('Выберите время')
-            break;
-        } else {
+        let option = selectedOptions[i].value; 
+        if (option == '') {
+                alert('Выберите время')
+                break;
+            } else {
             allOptions.push(option);
         }
         
     };
     
+    
+    allDates = allTexts.map((e, i) => e + ' ' + allOptions[i]);
+    console.log(allTexts, allOptions,allDates);
+    
+    for (let key in allDayMonths) {
+        
+            allDayMonths[key].date = allDates[key];
+            
+        };       
+        
+        
+        console.log(allDayMonths);
+    
     if (allOptions.length == allTexts.length) {
         
-        allDates = allTexts.map((e, i) => e + ' ' + allOptions[i])
+        
+        
+        
+        
+        
+        //allDates = allTexts.map((e, i) => e + ' ' + allOptions[i])
         reservPart1.classList.remove('reserv-active');
         reservPart2.classList.add('reserv-active');
         let allDataDates = [];
-         
+        
         for (i = 0; i < allDates.length; i++) {
+            
+            
+            
             let dataDay = allDates[i];
-            allDataDates += '<div class="reserv__block" ><h2 class="reserv__title">' + dataDay + '</h2><h2 class="reserv__title">Введите ваше ФИО:</h2><input class="reserv__input" type="text" size="40"><h2 class="reserv__title">Введите тему:</h2><input class="reserv__input" type="text" size="40"></div>';
+            allDataDates += '<div class="reserv__block" ><h2 class="reserv__title">' + dataDay + '</h2><h2 class="reserv__title">Введите ваше ФИО:</h2><input class="reserv__input-name" type="text" size="40"><h2 class="reserv__title">Введите тему:</h2><input class="reserv__input-title" type="text" size="40"></div>';
             
             
         }
@@ -83,9 +104,34 @@ nextButton2.addEventListener('click', function(event){
     }
     
     
-    
-    console.log(allDates);
-       
 });
 
 
+
+
+//next step 3
+let allReservInfo = [];
+nextButton3.addEventListener('click', function(event){
+    let allInputsNames = document.getElementsByClassName('reserv__input-name');
+    let allInputsTitles = document.getElementsByClassName('reserv__input-title');
+    let allNamesInfo = [];
+    let allTitlesInfo = [];
+    
+    for (i=0, j=0; i < allInputsNames.length && j < allInputsTitles.length; i++,j++  ) {
+        let input = allInputsNames[i].value;
+        let input2 = allInputsTitles[i].value;
+        if (input == '' || input2 == '') {
+            alert('Заполните данные')
+            break;
+        } else {
+            allNamesInfo.push(input);
+            allTitlesInfo.push(input2);
+        }
+        
+    }
+    
+    console.log(allDates);
+    
+    
+    
+});

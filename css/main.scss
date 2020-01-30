@@ -236,7 +236,12 @@
             margin: 2px;
                 
         }
-        &__input {
+        &__input-name {
+            width: 250px;
+            margin-bottom: 20px;
+            border: 0px;
+        }
+        &__input-title {
             width: 250px;
             margin-bottom: 20px;
             border: 0px;
