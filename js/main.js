@@ -70,11 +70,7 @@ nextButton2.addEventListener('click', function (event){
     allDates = allTexts.map((e, i) => e + ' ' + allOptions[i]);
     console.log(allTexts, allOptions,allDates);
     
-    for (let key in allDayMonths) {
-        
-            allDayMonths[key].date = allDates[key];
-            
-        };       
+       
         
         
         console.log(allDayMonths);
